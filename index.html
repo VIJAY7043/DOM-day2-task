@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <div class="card">
+          <div class="card-body">
+            <input type="text" id="calculator-screen" class="form-control mb-2" readonly>
+            <div class="row">
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('7')">7</button></div>
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('8')">8</button></div>
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('9')">9</button></div>
+              <div class="col"><button class="btn btn-danger btn-block" onclick="clearScreen()">C</button></div>
+            </div>
+            <div class="row">
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('4')">4</button></div>
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('5')">5</button></div>
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('6')">6</button></div>
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('+')">+</button></div>
+            </div>
+            <div class="row">
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('1')">1</button></div>
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('2')">2</button></div>
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('3')">3</button></div>
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('-')">-</button></div>
+            </div>
+            <div class="row">
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('0')">0</button></div>
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('*')">*</button></div>
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('/')">/</button></div>
+              <div class="col"><button class="btn btn-primary btn-block" onclick="appendToScreen('%')">%</button></div>
+            </div>
+            <div class="row">
+              <div class="col"><button class="btn btn-success btn-block" onclick="calculate()">=</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const screen = document.getElementById('calculator-screen');
+    
+    function appendToScreen(value) {
+      screen.value += value;
+    }
+    
+    function clearScreen() {
+      screen.value = '';
+    }
+    
+    function calculate() {
+      try {
+        screen.value = eval(screen.value);
+      } catch (error) {
+        screen.value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
